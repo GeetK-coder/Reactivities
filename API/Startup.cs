@@ -50,11 +50,14 @@ namespace API
 
             services.AddControllers();
             services.AddApplicationServices(_config);  //method created in ApplicationServicesExtensions.cs
+            
             services.AddCors(opt => {
                 opt.AddDefaultPolicy( policy => {
-                    policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
+                    policy.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
                     });
                     });
+
+            
 
         }
 
