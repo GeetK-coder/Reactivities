@@ -2,8 +2,6 @@ import React from 'react';
 import {Container} from 'semantic-ui-react';
 import NavBar from './navbar';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
-
-import { useStore } from '../stores/store';
 import { observer } from 'mobx-react-lite';
 import { Route, useLocation } from 'react-router-dom';
 import HomePage from '../../features/home/HomePage';
