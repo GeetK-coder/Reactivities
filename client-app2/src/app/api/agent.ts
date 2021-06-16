@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { Activity } from '../models/activity';
+import { User, UserFormValues } from '../models/user';
 
 
 const sleep=(delay:number)=>{
@@ -43,8 +44,15 @@ const Activities=
 
 }
 
+const Account = {
+    current: (): Promise<User> => requests.get<User>('/user'),
+    login: (user: UserFormValues): Promise<User> => requests.post<User>(`/user/login`, user),
+    register: (user: UserFormValues): Promise<User> => requests.post<User>(`/user/register`, user),
+}
+
 const agent={
-    Activities
+    Activities,
+    Account
 }
 
 export default agent;

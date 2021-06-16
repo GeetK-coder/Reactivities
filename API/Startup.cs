@@ -54,7 +54,7 @@ namespace API
 
             });
             services.AddApplicationServices(_config);  //method created in ApplicationServicesExtensions.cs
-            
+            services.AddIdentityServices(_config);
             services.AddCors(opt => {
                 opt.AddDefaultPolicy( policy => {
                     policy.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
@@ -80,6 +80,7 @@ namespace API
             app.UseRouting();
 
             app.UseCors("CorsPolicy");
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
